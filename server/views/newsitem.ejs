@@ -1,0 +1,44 @@
+
+<div class="box">
+    <a href="/news/<%= news.title %>"><h2 class="vid-name"><%= news.title %></h2></a>
+
+    <div class="info">
+        <h5>By <a href="#"><%= news.source %></a></h5>
+        <span><i class="fa fa-calendar"></i> <%= news.time %></span>
+        <span><i class="fa fa-comment"></i> <%= news.commentNum %> Comments</span>
+        <% if( user && user.interest.includes(String(news._id)) ) { %>
+        <span class="like"><a href="/users/unlike/<%= news._id %>"><i class="fa fa-heart"></i>已收藏</a></span>
+        <% }else { %>
+        <span class="like"><a href="/users/like/<%= news._id %>"><i class="fa fa-heart-o"></i>收藏</a></span>
+        <% } %>
+        <ul class="list-inline">
+            <li><a href="#">关键字</a></li>
+            <li> - </li>
+            <% for(let i=0; i<news.keywords.length && i < 5; i++){ %>
+            <li>
+                <span><a href="/tag/<%= news.keywords[i] %>"><%= news.keywords[i] %></a><%= i==news.keywords.length-1?"":"," %></span>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="wrap-vid">
+        <% if( news.has_image ){ %>
+            <% if( news.imgurls.length > 1 ) { %>
+                <div class="row" style="margin-bottom: 8px">
+                    <% for(let index = 0; index < news.imgurls.length && index < 3; index++) { %>
+                        <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+                            <img src="<%= news.imgurls[index] %>"/>
+                        </div>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <div class="zoom-container">
+                    <img src="<%= news.imgurls[0] %>" class="img-responsive center-block"/>
+                </div>
+            <% } %>
+        <% } %>
+        <p><%= news.abstract %><a href="/news/<%= news.title %>">更多...</a></p>
+    </div>
+</div>
+<hr class="line">

@@ -1,0 +1,73 @@
+
+<!--Top-->
+<nav id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <% if( genre ){ %>
+                    <strong><%= genres[genre] %></strong>
+                <% } %>
+
+            </div>
+            <div class="col-md-6">
+                <ul class="list-inline top-link link">
+                    <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+                    <% console.log(user) %>
+                    <% if( user ) { %>
+                        <li><a href="/users/info"><i class="fa fa-user"></i> <%= user.email %></a></li>
+                        <li><a href="/users/logout"><i class="fa fa-comments"></i> 登出</a></li>
+                    <% }else { %>
+                        <li><a href="/login"><i class="fa fa-comments"></i> 登录</a></li>
+                    <% } %>
+                    <li><a href="#"><i class="fa fa-question-circle"></i> 联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--Navigation-->
+<nav id="menu" class="navbar container hidden-xs">
+    <div class="navbar-header">
+        <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+        <a class="navbar-brand" href="/">
+            <div class="logo"><span>明日头条</span></div>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <!--<li class><a href="/">热点</a></li>-->
+            <% var index = 0, limit = 8 %>
+            <% for(prop in genres) { %>
+                <% if( index > limit ) break; %>
+                <% index++; %>
+                <li><a href="/<%= prop %>"><%= genres[prop] %></a></li>
+            <% } %>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">更多<i class="fa fa-arrow-circle-o-down"></i></a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-inner" style="width: 100%;">
+                        <ul class="list-unstyled">
+                            <% index = 0 %>
+                            <% for(prop in genres) { %>
+                                <% if( index > limit ){ %>
+                                    <li><a href="/<%= prop %>"><%= genres[prop] %></a></li>
+                                <% } %>
+                                <% index++; %>
+                            <% } %>
+                            <!--<li><a href="/newslist">Text 101</a></li>-->
+                            <!--<li><a href="/newslist">Text 102</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        <ul class="list-inline navbar-right top-social">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,48 @@
+{
+  "host": "127.0.0.1",
+  "port": 3000,
+  "connect": "mongodb://127.0.0.1:27017/newslist",
+  "newscol": "news",
+  "usercol": "users",
+  "mailoptions": {
+    "service": "126",
+    "email": "newsfeedregister@126.com",
+    "password": "newsfeed2017"
+  },
+  "redis": {
+    "port": 6379,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "user": "",
+    "password": ""
+  },
+  "api": {
+    "modelid": "28f64f3a-84a8-4f6d-889b-6c738d284aad",
+    "endpoint": "https://westus.api.cognitive.microsoft.com/recommendations/v4.0",
+    "token": "62155e00332a4a62afbfe6478c8c9212"
+  },
+  "genres": {
+    "personal": "推荐",
+    "hot": "热门",
+    "society": "社会",
+    "domestic": "国内",
+    "global": "国际",
+    "technology": "科技",
+    "finance": "经济",
+    "war": "军事",
+    "education": "教育",
+    "car": "汽车",
+    "game": "游戏",
+    "discover": "探索",
+    "entertain": "娱乐",
+    "fashion": "时尚",
+    "health": "健康",
+    "history": "历史",
+    "mobile": "数码",
+    "sport": "体育",
+    "travel": "旅游"
+  }
+}
